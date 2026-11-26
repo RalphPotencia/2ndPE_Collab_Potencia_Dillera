@@ -1,7 +1,82 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+Develoepr A
 
-#Developer A
+store_name = "Ralph and Lj's = Mini Food Store"
 
-#Develoepr B
+burger_price = 50
+fries_price = 35
+drink_price = 25
+
+burger_qty = 0
+fries_qty = 0
+drink_qty = 0
+
+while True:
+    print("===== FOOD MENU =====")
+    print("1. Burger - ₱50")
+    print("2. Fries - ₱35")
+    print("3. Soft Drink - ₱25")
+    print("4. Checkout")
+
+    choice = input("Select a product (1-4): ")
+
+    if choice == "4":
+        break
+
+    elif choice in ["1", "2", "3"]:
+        while True:
+            try:
+                qty = int(input("Enter quantity: "))
+
+                if qty > 0:
+                    if choice == "1":
+                        burger_qty += qty
+                    elif choice == "2":
+                        fries_qty += qty
+                    elif choice == "3":
+                        drink_qty += qty
+                    break
+                else:
+                    print("Quantity must be greater than zero.")
+
+            except ValueError:
+                print("Invalid input. Enter a number.")
+
+    else:
+        print("Invalid choice! Please try again.")
+
+
+burger_subtotal = burger_qty * burger_price
+fries_subtotal = fries_qty * fries_price
+drink_subtotal = drink_qty * drink_price
+
+total = burger_subtotal + fries_subtotal + drink_subtotal
+
+# Develper B
+print("================================")
+print(" ", store_name)
+print("================================")
+print(" OFFICIAL RECEIPT")
+print("--------------------------------")
+print("PRODUCT QTY PRICE SUBTOTAL")
+print("--------------------------------")
+
+if burger_qty > 0:
+    print(f"Burger {burger_qty} ₱{burger_price} ₱{burger_subtotal}")
+
+if fries_qty > 0:
+    print(f"Fries {fries_qty} ₱{fries_price} ₱{fries_subtotal}")
+
+if drink_qty > 0:
+    print(f"Soft Drink {drink_qty} ₱{drink_price} ₱{drink_subtotal}")
+
+print("--------------------------------")
+print(f"TOTAL AMOUNT TO BE PAID: ₱{total}")
+print("================================")
+print(" THANK YOU FOR ORDERING!")
+print("================================")
+
+#GitHub Haters
+
